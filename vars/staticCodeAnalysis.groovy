@@ -1,5 +1,7 @@
-def call(credentialsId) {
-    withSonarQubeEnv(credentialsId: 'sonar-apitoken') {
+def call() {
+    withSonarQubeEnv('sonar-server')  {
+        sh '''
         mvn clean package sonar:sonar
+        '''
         }
     }
